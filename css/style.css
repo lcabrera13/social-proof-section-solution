@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+:root {
+    --very-dark-magenta: hsl(300, 43%, 22%);
+    --soft-pink: hsl(333, 80%, 67%);
+
+    --dark-grayish-magenta: hsl(303, 10%, 53%);
+    --light-grayish-magenta: hsl(300, 24%, 96%);
+    --white: hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'League Spartan', sans-serif;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    background-image: url('../images/bg-pattern-top-mobile.svg'), url('../images/bg-pattern-bottom-mobile.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+    background-position: right 55vw bottom, left bottom -35vh;
+}
+
+main {
+    width: 300px;
+    display: grid;
+    gap: 30px;
+}
+
+.social-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.social-card h1 {
+    color: var(--very-dark-magenta);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.social-card p {
+    color: var(--dark-grayish-magenta);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.ratings-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ratings-cards .rating-card {
+    background-color: var(--light-grayish-magenta);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    gap: 5px;
+}
+
+.ratings-cards .rating-card h2 {
+    color: var(--very-dark-magenta);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.ratings-cards .rating-card .rating img {
+    width: 12px;
+}
+
+.comments-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comments-cards .comment-card {
+    background-color: var(--very-dark-magenta);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 20px 15px;
+    gap: 15px;
+}
+
+.comments-cards .comment-card .comment-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.comments-cards .comment-card .comment-header img {
+    width: 30px;
+    border-radius: 50%;
+}
+
+.comments-cards .comment-card .comment-header h3 {
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.comments-cards .comment-card .comment-header p {
+    color: var(--soft-pink);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.comments-cards .comment-card .comment-body {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+@media (min-width: 1000px) {
+    body {
+        background-image: url('../images/bg-pattern-top-desktop.svg'), url('../images/bg-pattern-bottom-desktop.svg');
+        background-size: cover, cover;
+        background-position: right 36vw bottom, left 10vw bottom;
+    }
+
+    main {
+        width: 750px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "social ratings" "comments comments";
+    }
+
+    .social-card {
+        grid-area: social;
+        padding-right: 80px;
+        text-align: left;
+    }
+
+    .ratings-cards {
+        grid-area: ratings;
+        align-items: flex-end;
+    }
+
+    .ratings-cards .rating-card {
+        width: 85%;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .ratings-cards .rating-card:nth-child(1) {
+        margin-right: 60px;
+    }
+
+    .ratings-cards .rating-card:nth-child(2) {
+        margin-right: 30px;
+    }
+
+    .comments-cards {
+        grid-area: comments;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .comments-cards .comment-card {
+        width: 32%;
+        height: 150px;
+    }
+
+    .comments-cards .comment-card:nth-child(2) {
+        margin-top: 10px;
+    }
+
+    .comments-cards .comment-card:nth-child(3) {
+        margin-top: 20px;
+    }
+}
